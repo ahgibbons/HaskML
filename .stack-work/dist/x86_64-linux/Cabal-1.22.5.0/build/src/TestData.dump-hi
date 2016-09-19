@@ -1,0 +1,393 @@
+
+==================== FINAL INTERFACE ====================
+2016-09-19 05:45:42.773796 UTC
+
+interface haskm_FN7qJVrLFifKsZpoVhPQHo:TestData 7103
+  interface hash: bcd0c49db284a2a6ae3e2305d4b51593
+  ABI hash: 4e4e564aec5b47c5e52c8613aa52f26d
+  export-list hash: 22279fa767d668515e7b400021cf7e97
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 962af636f8e927040c7daa9c21457292
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  TestData.fileData
+  TestData.recToIris
+  TestData.trainData
+  TestData.trainData_std
+  TestData.Iris{TestData.Iris TestData.irisClass TestData.petalLength TestData.petalWidth TestData.sepalLength TestData.sepalWidth}
+module dependencies: Lib LinearClassifier
+package dependencies: array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA
+                      base-4.8.2.0* binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi
+                      bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      csv-0.1.2@csv_EJuII2H4Q0X1U9kAVhQJ94
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 mtl-2.2.1@mtl_Aue4leSeVkpKLsfHIV51E8
+                      parsec-3.1.11@parse_AtBt9uDOS2NCyWnucTHV3y
+                      text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne
+                      transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         binary-0.7.5.0@binar_3uXFWMoAGBg0xKP9MHKRwi:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_6VWy06pWzJq9evDvK2d4w6:Data.ByteString.Builder
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Show
+         transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntMap.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntSet.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Sequence
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text
+                         text-1.2.2.1@text_HmqVQnZSpjaC156ABqPhne:Data.Text.Lazy
+import  -/  base-4.8.2.0:Data.Either e8724afd65fd432cfe9a54014f5f762d
+import  -/  base-4.8.2.0:Data.Functor 5c701b0af1708f0192a25dfe14ce6274
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:Text.Read ef0ef92fb7358ae94bab089940adfd2a
+import  -/  csv-0.1.2@csv_EJuII2H4Q0X1U9kAVhQJ94:Text.CSV e8263292970cb63a671df2f47324c488
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Lib 9abc262bcb5abeb0fb4058b92654c3f4
+  exports: 508836428482230b49488db1c9b41019
+  standardizeTData dd1369683a6498e211b7d6b9e802cb4e
+c3469d8eff3823a1501ae8dd5daf4919
+  $wgo :: [TestData.Iris] -> GHC.Prim.Int# -> [GHC.Types.Bool]
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0] -}
+a5ae43f146fdc65d7adb308e857d058d
+  $wgo1 :: [TestData.Iris] -> GHC.Prim.Int# -> [[GHC.Types.Double]]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Inline: [0] -}
+36d9261cb6e95c89ed18ea68fed5dff2
+  $wrecToIris ::
+    [GHC.Base.String]
+    -> (# GHC.Types.Double,
+          GHC.Types.Double,
+          GHC.Types.Double,
+          GHC.Types.Double,
+          GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ w :: [GHC.Base.String] ->
+                 case w of wild {
+                   []
+                   -> case TestData.recToIris4
+                      ret_ty (# GHC.Types.Double,
+                                GHC.Types.Double,
+                                GHC.Types.Double,
+                                GHC.Types.Double,
+                                GHC.Base.String #)
+                      of {}
+                   : sL ds1
+                   -> case ds1 of wild1 {
+                        []
+                        -> case TestData.recToIris4
+                           ret_ty (# GHC.Types.Double,
+                                     GHC.Types.Double,
+                                     GHC.Types.Double,
+                                     GHC.Types.Double,
+                                     GHC.Base.String #)
+                           of {}
+                        : sW ds2
+                        -> case ds2 of wild2 {
+                             []
+                             -> case TestData.recToIris4
+                                ret_ty (# GHC.Types.Double,
+                                          GHC.Types.Double,
+                                          GHC.Types.Double,
+                                          GHC.Types.Double,
+                                          GHC.Base.String #)
+                                of {}
+                             : pL ds3
+                             -> case ds3 of wild3 {
+                                  []
+                                  -> case TestData.recToIris4
+                                     ret_ty (# GHC.Types.Double,
+                                               GHC.Types.Double,
+                                               GHC.Types.Double,
+                                               GHC.Types.Double,
+                                               GHC.Base.String #)
+                                     of {}
+                                  : pW ds4
+                                  -> case ds4 of wild4 {
+                                       []
+                                       -> case TestData.recToIris4
+                                          ret_ty (# GHC.Types.Double,
+                                                    GHC.Types.Double,
+                                                    GHC.Types.Double,
+                                                    GHC.Types.Double,
+                                                    GHC.Base.String #)
+                                          of {}
+                                       : iC ds5
+                                       -> case ds5 of wild5 {
+                                            []
+                                            -> (# case Text.Read.readEither6
+                                                         @ GHC.Types.Double
+                                                         (Text.ParserCombinators.ReadP.run
+                                                            @ GHC.Types.Double
+                                                            TestData.recToIris3
+                                                            sL) of wild6 {
+                                                    [] -> TestData.recToIris2
+                                                    : x ds6
+                                                    -> case ds6 of wild7 {
+                                                         [] -> x
+                                                         : ipv ipv1 -> TestData.recToIris1 } },
+                                                  case Text.Read.readEither6
+                                                         @ GHC.Types.Double
+                                                         (Text.ParserCombinators.ReadP.run
+                                                            @ GHC.Types.Double
+                                                            TestData.recToIris3
+                                                            sW) of wild6 {
+                                                    [] -> TestData.recToIris2
+                                                    : x ds6
+                                                    -> case ds6 of wild7 {
+                                                         [] -> x
+                                                         : ipv ipv1 -> TestData.recToIris1 } },
+                                                  case Text.Read.readEither6
+                                                         @ GHC.Types.Double
+                                                         (Text.ParserCombinators.ReadP.run
+                                                            @ GHC.Types.Double
+                                                            TestData.recToIris3
+                                                            pL) of wild6 {
+                                                    [] -> TestData.recToIris2
+                                                    : x ds6
+                                                    -> case ds6 of wild7 {
+                                                         [] -> x
+                                                         : ipv ipv1 -> TestData.recToIris1 } },
+                                                  case Text.Read.readEither6
+                                                         @ GHC.Types.Double
+                                                         (Text.ParserCombinators.ReadP.run
+                                                            @ GHC.Types.Double
+                                                            TestData.recToIris3
+                                                            pW) of wild6 {
+                                                    [] -> TestData.recToIris2
+                                                    : x ds6
+                                                    -> case ds6 of wild7 {
+                                                         [] -> x
+                                                         : ipv ipv1 -> TestData.recToIris1 } },
+                                                  iC #)
+                                            : ipv ipv1
+                                            -> case TestData.recToIris4
+                                               ret_ty (# GHC.Types.Double,
+                                                         GHC.Types.Double,
+                                                         GHC.Types.Double,
+                                                         GHC.Types.Double,
+                                                         GHC.Base.String #)
+                                               of {} } } } } } }) -}
+d85a9acf45687dc0b3f55674b85c2bca
+  data Iris
+    = Iris {sepalLength :: GHC.Types.Double,
+            sepalWidth :: GHC.Types.Double,
+            petalLength :: GHC.Types.Double,
+            petalWidth :: GHC.Types.Double,
+            irisClass :: GHC.Base.String}
+f63889ebc8162e0026ba791a1fc68db6
+  fileData :: GHC.Types.IO [TestData.Iris]
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                TestData.fileData1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0] <[TestData.Iris]>_R)) -}
+e69b7fabe6be4c8edfa8fe6288dcf3ce
+  fileData1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [TestData.Iris] #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case TestData.fileData3 s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   Data.Either.Left ipv2
+                   -> GHC.IO.failIO1 @ [TestData.Iris] TestData.fileData2 ipv
+                   Data.Either.Right t -> (# ipv, TestData.fileData_go t #) } }) -}
+861264e74d51217181db6af5dac3e288
+  fileData2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Pattern match failure in do expression at src/TestData.hs:21:5-11"#) -}
+ce2bd687660112952aa0554a88a515b1
+  fileData3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either Text.Parsec.Error.ParseError Text.CSV.CSV #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.FD.openFile1
+                        TestData.fileData4
+                        GHC.IO.IOMode.ReadMode
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hGetContents1
+                        ipv1
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 (# ipv2,
+                    (Text.Parsec.Prim.runPT
+                       @ GHC.Base.String
+                       @ ()
+                       @ Data.Functor.Identity.Identity
+                       @ Text.CSV.CSV
+                       @ GHC.Types.Char
+                       (Text.Parsec.String.$s$fStream[]mtok @ GHC.Types.Char)
+                       Text.CSV.csv1
+                         `cast`
+                       (Sym (Text.Parsec.Prim.NTCo:ParsecT[0]
+                                 <[GHC.Types.Char]>_R
+                                 <()>_R
+                                 <Data.Functor.Identity.Identity>_R
+                                 <Text.CSV.CSV>_R))
+                       GHC.Tuple.()
+                       TestData.fileData4
+                       ipv3)
+                      `cast`
+                    (Data.Functor.Identity.NTCo:Identity[0]
+                         <Data.Either.Either
+                            Text.Parsec.Error.ParseError Text.CSV.CSV>_R) #) } }) -}
+126c45d4ffe14ab60ef2b7280cc0bb7c
+  fileData4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "iris.data"#) -}
+214f2360a423e88151d358d9301acb11
+  fileData_go :: [[GHC.Base.String]] -> [TestData.Iris]
+  {- Arity: 1, Strictness: <S,1*U> -}
+259d5ecf5e29b5538c8839666b30afd2
+  irisClass :: TestData.Iris -> GHC.Base.String
+  RecSel TestData.Iris
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLLS),1*U(A,A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds1 :: TestData.Iris ->
+                 case ds1 of wild { TestData.Iris ds2 ds3 ds4 ds5 ds6 -> ds6 }) -}
+e7e254e9b7bd3cf3d98b76ea19aed384
+  petalLength :: TestData.Iris -> GHC.Types.Double
+  RecSel TestData.Iris
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLSLL),1*U(A,A,1*U(U),A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds1 :: TestData.Iris ->
+                 case ds1 of wild { TestData.Iris ds2 ds3 ds4 ds5 ds6 -> ds4 }) -}
+7b9d258ed9ea5c313c7e3a295830b539
+  petalWidth :: TestData.Iris -> GHC.Types.Double
+  RecSel TestData.Iris
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLSL),1*U(A,A,A,1*U(U),A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds1 :: TestData.Iris ->
+                 case ds1 of wild { TestData.Iris ds2 ds3 ds4 ds5 ds6 -> ds5 }) -}
+e7bb6530358f70c358cbb8d6674354fe
+  recToIris :: [GHC.Base.String] -> TestData.Iris
+  {- Arity: 1, Strictness: <S,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: [GHC.Base.String] ->
+                 case TestData.$wrecToIris w of ww { (#,,,,#) ww1 ww2 ww3 ww4 ww5 ->
+                 TestData.Iris ww1 ww2 ww3 ww4 ww5 }) -}
+015d287728331e5181f98435a307337f
+  recToIris1 :: GHC.Types.Double
+  {- Strictness: b -}
+d17cae520974a3188e381b3050b2aab3
+  recToIris2 :: GHC.Types.Double
+  {- Strictness: b -}
+6adaa4d2ed0f56eb08657f97c7504ee9
+  recToIris3 :: Text.ParserCombinators.ReadP.P GHC.Types.Double
+  {- Unfolding: ((GHC.Read.$fReadDouble9
+                    GHC.Read.$fReadDouble_$sconvertFrac
+                    Text.ParserCombinators.ReadPrec.minPrec)
+                   `cast`
+                 (Text.ParserCombinators.ReadP.NTCo:ReadP[0] <GHC.Types.Double>_R)
+                   @ GHC.Types.Double
+                   (Text.Read.readEither5 @ GHC.Types.Double)) -}
+c0a4ae5f66cb6e845e3c291cfacbfa59
+  recToIris4 :: TestData.Iris
+  {- Strictness: b -}
+34695aad68675c592bdb89425efebe64
+  sepalLength :: TestData.Iris -> GHC.Types.Double
+  RecSel TestData.Iris
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(U),A,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds1 :: TestData.Iris ->
+                 case ds1 of wild { TestData.Iris ds2 ds3 ds4 ds5 ds6 -> ds2 }) -}
+d03064400f01545be0e28fd9db2ec3ff
+  sepalWidth :: TestData.Iris -> GHC.Types.Double
+  RecSel TestData.Iris
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LSLLL),1*U(A,1*U(U),A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds1 :: TestData.Iris ->
+                 case ds1 of wild { TestData.Iris ds2 ds3 ds4 ds5 ds6 -> ds3 }) -}
+0c301bbd52e6b94da011e09099afb7bf
+  trainData :: GHC.Types.IO ([[GHC.Types.Double]], [GHC.Types.Bool])
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                TestData.trainData1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0]
+                          <([[GHC.Types.Double]], [GHC.Types.Bool])>_R)) -}
+0a0f22fa6c434b8ab0d0312dc2c57477
+  trainData1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          ([[GHC.Types.Double]], [GHC.Types.Bool]) #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case TestData.fileData3 s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   Data.Either.Left ipv2
+                   -> case GHC.Prim.raiseIO#
+                             @ GHC.Exception.SomeException
+                             @ [TestData.Iris]
+                             TestData.trainData2
+                             ipv
+                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                ([[GHC.Types.Double]], [GHC.Types.Bool]) #)
+                      of {}
+                   Data.Either.Right t
+                   -> (# ipv,
+                         let {
+                           td :: [TestData.Iris] = TestData.trainData_go t
+                         } in
+                         (TestData.$wgo1 td 100, TestData.$wgo td 100) #) } }) -}
+b5f91b2b0a0df0aa707a97e9c03e35e0
+  trainData2 :: GHC.Exception.SomeException
+  {- Unfolding: (GHC.IO.Exception.$fExceptionIOException_$ctoException
+                   TestData.trainData3) -}
+3a35920777e8412a131648a4ecc1602c
+  trainData3 :: GHC.IO.Exception.IOException
+  {- Unfolding: (GHC.IO.Exception.IOError
+                   (GHC.Base.Nothing @ GHC.IO.Handle.Types.Handle)
+                   GHC.IO.Exception.UserError
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   TestData.fileData2
+                   (GHC.Base.Nothing @ Foreign.C.Types.CInt)
+                   (GHC.Base.Nothing @ GHC.IO.FilePath)) -}
+618b6d5fa7834127de9db824bc63e861
+  trainData_go :: [[GHC.Base.String]] -> [TestData.Iris]
+  {- Arity: 1, Strictness: <S,1*U> -}
+16cf2a2fa3ab700f014cd3c92b0cd61b
+  trainData_std ::
+    GHC.Types.IO ([[GHC.Types.Double]], [GHC.Types.Bool])
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                TestData.trainData_std1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0]
+                          <([[GHC.Types.Double]], [GHC.Types.Bool])>_R)) -}
+5ddefe3d30a79123f3dcbe3344e61337
+  trainData_std1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          ([[GHC.Types.Double]], [GHC.Types.Bool]) #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case TestData.trainData1 s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, Lib.standardizeTData ipv1 #) }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

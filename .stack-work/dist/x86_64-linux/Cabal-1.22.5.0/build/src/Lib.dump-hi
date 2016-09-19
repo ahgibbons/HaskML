@@ -1,0 +1,247 @@
+
+==================== FINAL INTERFACE ====================
+2016-09-19 05:45:41.689427 UTC
+
+interface haskm_FN7qJVrLFifKsZpoVhPQHo:Lib 7103
+  interface hash: 53f1fb78e1e59945c60b88bed83dd78d
+  ABI hash: 9abc262bcb5abeb0fb4058b92654c3f4
+  export-list hash: 508836428482230b49488db1c9b41019
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 962af636f8e927040c7daa9c21457292
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Lib.boolToNum
+  Lib.checkErrors
+  Lib.lineParam2D
+  Lib.standardize
+  Lib.standardizeTData
+  Lib.vdot
+module dependencies: LinearClassifier
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.List 3f0782c8d4bf50eecefcd5ea1798aac8
+import  -/  base-4.8.2.0:Data.OldList d8fd80b0e14aa085ce6219cd89dad356
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Float e532d434ec2447d809887c0fca1d78a5
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Real 1281efa9baf803bc7859d7efb89a38b3
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0248c1e850b7ea124cf7a2e1669ebf67
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  LinearClassifier 0866cb680eda3384c28656811c3da048
+  exports: b5c068f7823e0341af3dc7b35d756fc9
+  LinearClassifier b3b3b62a720e9b3ce08736b2fe7b4cc2
+  predict 298f25bef39719c5418abb59e4fa5608
+  weights b165453766ba4801df9f242ccf4e5c42
+1b8c0398de2fb42afd76ebaef930bd6a
+  $wcheckErrors ::
+    LinearClassifier.LinearClassifier lc =>
+    lc -> [[GHC.Types.Double]] -> [GHC.Types.Bool] -> GHC.Prim.Int#
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U><S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ @ lc
+                   w :: LinearClassifier.LinearClassifier lc
+                   w1 :: lc
+                   ww :: [[GHC.Types.Double]]
+                   ww1 :: [GHC.Types.Bool] ->
+                 letrec {
+                   $wgo2 :: [[GHC.Types.Double]]
+                            -> [GHC.Types.Bool] -> GHC.Prim.Int# -> GHC.Prim.Int#
+                     {- Arity: 3, Strictness: <S,1*U><L,1*U><L,U>, Inline: [0] -}
+                   = \ w2 :: [[GHC.Types.Double]]
+                       w3 :: [GHC.Types.Bool]
+                       ww2 :: GHC.Prim.Int# ->
+                     case w2 of wild {
+                       [] -> ww2
+                       : ipv ipv1
+                       -> case w3 of wild1 {
+                            [] -> ww2
+                            : ipv2 ipv3
+                            -> case LinearClassifier.predict @ lc w w1 ipv of wild2 {
+                                 GHC.Types.False
+                                 -> case ipv2 of wild3 {
+                                      GHC.Types.False -> $wgo2 ipv1 ipv3 ww2
+                                      GHC.Types.True -> $wgo2 ipv1 ipv3 (GHC.Prim.+# ww2 1) }
+                                 GHC.Types.True
+                                 -> case ipv2 of wild3 {
+                                      GHC.Types.False -> $wgo2 ipv1 ipv3 (GHC.Prim.+# ww2 1)
+                                      GHC.Types.True -> $wgo2 ipv1 ipv3 ww2 } } } }
+                 } in
+                 $wgo2 ww ww1 0) -}
+a8590a22eb54f4b128cba718dddfa9e9
+  $wgo :: [GHC.Types.Double] -> GHC.Prim.Double# -> GHC.Prim.Double#
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0] -}
+03950c9c75511436218afe9b30f899cb
+  $wgo1 ::
+    [GHC.Types.Double]
+    -> [GHC.Types.Double] -> GHC.Prim.Double# -> GHC.Prim.Double#
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,1*U><L,U>,
+     Inline: [0] -}
+9cf97fddd83ed754383aef532f5b8324
+  $wlineParam2D ::
+    LinearClassifier.LinearClassifier p =>
+    p -> (# GHC.Types.Double, [GHC.Types.Double] #)
+  {- Arity: 2, Strictness: <L,1*U(A,A,1*C1(U))><L,U>, Inline: [0],
+     Unfolding: (\ @ p
+                   w :: LinearClassifier.LinearClassifier p
+                   w1 :: p ->
+                 let {
+                   ds :: (GHC.Types.Double, GHC.Types.Double, GHC.Types.Double)
+                   = case LinearClassifier.weights @ p w w1 of wild {
+                       [] -> Lib.lineParam2D1
+                       : p1 ds1
+                       -> case ds1 of wild1 {
+                            [] -> Lib.lineParam2D1
+                            : q ds2
+                            -> case ds2 of wild2 {
+                                 [] -> Lib.lineParam2D1
+                                 : r ds3
+                                 -> case ds3 of wild3 {
+                                      [] -> (p1, q, r) : ipv ipv1 -> Lib.lineParam2D1 } } } }
+                 } in
+                 let {
+                   r :: GHC.Types.Double = case ds of ds1 { (,,) p1 q r1 -> r1 }
+                 } in
+                 (# case ds of ds1 { (,,) p1 q r1 ->
+                    case q of wild { GHC.Types.D# x ->
+                    case r of wild1 { GHC.Types.D# y ->
+                    case GHC.Prim./## x y of wild2 { DEFAULT ->
+                    GHC.Types.D# (GHC.Prim.negateDouble# wild2) } } } },
+                    GHC.Types.:
+                      @ GHC.Types.Double
+                      (case ds of ds1 { (,,) p1 q r1 ->
+                       case p1 of wild { GHC.Types.D# x ->
+                       case r of wild1 { GHC.Types.D# y ->
+                       case GHC.Prim./## x y of wild2 { DEFAULT ->
+                       GHC.Types.D# (GHC.Prim.negateDouble# wild2) } } } })
+                      (GHC.Types.[] @ GHC.Types.Double) #)) -}
+75170fd1189f081893452956ff2aad72
+  boolToNum :: GHC.Num.Num a => GHC.Types.Bool -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S,U(A,A,A,1*C1(U),A,A,1*C1(U))><S,1*U>,
+     Unfolding: (\ @ a $dNum :: GHC.Num.Num a b :: GHC.Types.Bool ->
+                 case b of wild {
+                   GHC.Types.False
+                   -> GHC.Num.negate
+                        @ a
+                        $dNum
+                        (GHC.Num.fromInteger @ a $dNum Lib.boolToNum1)
+                   GHC.Types.True
+                   -> GHC.Num.fromInteger @ a $dNum Lib.boolToNum1 }) -}
+512c4a263d0a751fdbf4de30d9044046
+  boolToNum1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (__integer 1) -}
+43f84f2f6ad960d88e37bf6fc90509b3
+  checkErrors ::
+    LinearClassifier.LinearClassifier lc =>
+    lc -> ([[GHC.Types.Double]], [GHC.Types.Bool]) -> GHC.Types.Int
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U><S(SL),1*U(1*U,1*U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ lc
+                   w :: LinearClassifier.LinearClassifier lc
+                   w1 :: lc
+                   w2 :: ([[GHC.Types.Double]], [GHC.Types.Bool]) ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 case Lib.$wcheckErrors @ lc w w1 ww1 ww2 of ww3 { DEFAULT ->
+                 GHC.Types.I# ww3 } }) -}
+425a26d47bcaa089d7947590349560fb
+  lineParam2D ::
+    LinearClassifier.LinearClassifier p => p -> [GHC.Types.Double]
+  {- Arity: 2, Strictness: <L,1*U(A,A,1*C1(U))><L,U>m2,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ p w :: LinearClassifier.LinearClassifier p w1 :: p ->
+                 case Lib.$wlineParam2D @ p w w1 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ GHC.Types.Double ww1 ww2 }) -}
+6b206eb837c6a1be5dea78cbf92940a9
+  lineParam2D1 ::
+    (GHC.Types.Double, GHC.Types.Double, GHC.Types.Double)
+  {- Strictness: b -}
+a4f0e49580c3d06a91d627f4fa52c197
+  standardize :: [GHC.Types.Double] -> [GHC.Types.Double]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,U>,
+     Unfolding: (\ xs :: [GHC.Types.Double] ->
+                 let {
+                   x_mean :: GHC.Types.Double
+                   = case Lib.$wgo xs 0.0 of ww { DEFAULT ->
+                     case GHC.List.$wlenAcc @ GHC.Types.Double xs 0 of ww2 { DEFAULT ->
+                     case GHC.Prim./## ww (GHC.Prim.int2Double# ww2) of ww1 { DEFAULT ->
+                     GHC.Types.D# ww1 } } }
+                 } in
+                 let {
+                   x_std :: GHC.Types.Double
+                   = letrec {
+                       $wgo2 :: [GHC.Types.Double] -> GHC.Prim.Double# -> GHC.Prim.Double#
+                         {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+                       = \ w :: [GHC.Types.Double] ww :: GHC.Prim.Double# ->
+                         case w of wild {
+                           [] -> ww
+                           : y ys
+                           -> case y of wild1 { GHC.Types.D# x ->
+                              case x_mean of wild2 { GHC.Types.D# y1 ->
+                              $wgo2
+                                ys
+                                (GHC.Prim.+## ww (GHC.Prim.**## (GHC.Prim.-## x y1) 2.0)) } } }
+                     } in
+                     case $wgo2 xs 0.0 of ww { DEFAULT ->
+                     case GHC.List.$wlenAcc @ GHC.Types.Double xs 0 of ww2 { DEFAULT ->
+                     case GHC.Prim./##
+                            ww
+                            (GHC.Prim.int2Double# ww2) of wild2 { DEFAULT ->
+                     GHC.Types.D# (GHC.Prim.sqrtDouble# wild2) } } }
+                 } in
+                 GHC.Base.map
+                   @ GHC.Types.Double
+                   @ GHC.Types.Double
+                   (\ x :: GHC.Types.Double ->
+                    case x of wild { GHC.Types.D# x1 ->
+                    case x_mean of wild1 { GHC.Types.D# y ->
+                    case x_std of wild2 { GHC.Types.D# y1 ->
+                    case GHC.Prim./## (GHC.Prim.-## x1 y) y1 of wild3 { DEFAULT ->
+                    GHC.Types.D# wild3 } } } })
+                   xs) -}
+dd1369683a6498e211b7d6b9e802cb4e
+  standardizeTData ::
+    ([[GHC.Types.Double]], [GHC.Types.Bool])
+    -> ([[GHC.Types.Double]], [GHC.Types.Bool])
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(1*U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: ([[GHC.Types.Double]], [GHC.Types.Bool]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 (Data.OldList.transpose
+                    @ GHC.Types.Double
+                    (GHC.Base.map
+                       @ [GHC.Types.Double]
+                       @ [GHC.Types.Double]
+                       Lib.standardize
+                       (Data.OldList.transpose @ GHC.Types.Double ww1)),
+                  ww2) }) -}
+26d5ce60df6cad685e6823e6ae3abbb5
+  vdot ::
+    [GHC.Types.Double] -> [GHC.Types.Double] -> GHC.Types.Double
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: [GHC.Types.Double] w1 :: [GHC.Types.Double] ->
+                 case Lib.$wgo1 w w1 0.0 of ww { DEFAULT -> GHC.Types.D# ww }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

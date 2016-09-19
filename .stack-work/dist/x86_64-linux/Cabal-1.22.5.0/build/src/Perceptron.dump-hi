@@ -1,0 +1,350 @@
+
+==================== FINAL INTERFACE ====================
+2016-09-19 05:45:41.807036 UTC
+
+interface haskm_FN7qJVrLFifKsZpoVhPQHo:Perceptron 7103
+  interface hash: 9db4f62e0f6c31caaacb17ded9c77237
+  ABI hash: d5a6cb7f5c8da798662c542be80460e3
+  export-list hash: 3340e05b707a96bb9eaa8d9b04b6c063
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 962af636f8e927040c7daa9c21457292
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Perceptron.fitData
+  Perceptron.fitDatum
+  Perceptron.fitIter
+  Perceptron.Perceptron{Perceptron.Perceptron}
+module dependencies: Lib LinearClassifier
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Either e8724afd65fd432cfe9a54014f5f762d
+import  -/  base-4.8.2.0:Data.Foldable 2ce969969ad5231eb40bd713f94f05ad
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  Lib 9abc262bcb5abeb0fb4058b92654c3f4
+  exports: 508836428482230b49488db1c9b41019
+  boolToNum 75170fd1189f081893452956ff2aad72
+  vdot 26d5ce60df6cad685e6823e6ae3abbb5
+import  -/  LinearClassifier 0866cb680eda3384c28656811c3da048
+  exports: b5c068f7823e0341af3dc7b35d756fc9
+  LinearClassifier b3b3b62a720e9b3ce08736b2fe7b4cc2
+  fit 3a87537528753e83c23f4d19b3ff9cea
+  predict 298f25bef39719c5418abb59e4fa5608
+  weights b165453766ba4801df9f242ccf4e5c42
+7f2c70c802bb108ed979b05ed3178ffe
+  $fLinearClassifierPerceptron ::
+    LinearClassifier.LinearClassifier Perceptron.Perceptron
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Perceptron.Perceptron
+                  Perceptron.$fLinearClassifierPerceptron_$cpredict
+                  Perceptron.fitIter
+                  Perceptron.$fLinearClassifierPerceptron_$cweights -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fLinearClassifierPerceptron_$cpredict ::
+    Perceptron.Perceptron -> [GHC.Types.Double] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S(LS),1*U(A,U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Perceptron.Perceptron w1 :: [GHC.Types.Double] ->
+                 case w of ww { Perceptron.Perceptron ww1 ww2 ->
+                 Perceptron.$w$cpredict ww2 w1 }) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fLinearClassifierPerceptron_$cweights ::
+    Perceptron.Perceptron -> [GHC.Types.Double]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Perceptron.Perceptron ->
+                 case ds of wild { Perceptron.Perceptron ds1 ws -> ws }) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fShowPerceptron :: GHC.Show.Show Perceptron.Perceptron
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Perceptron.Perceptron
+                  Perceptron.$fShowPerceptron_$cshowsPrec
+                  Perceptron.$fShowPerceptron_$cshow
+                  Perceptron.$fShowPerceptron_$cshowList -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fShowPerceptron1 :: Perceptron.Perceptron -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Perceptron.Perceptron ->
+                 case w of ww { Perceptron.Perceptron ww1 ww2 ->
+                 Perceptron.$w$cshowsPrec 0 ww1 ww2 }) -}
+4788e2514d224be60c6b458c1baa31ea
+  $fShowPerceptron2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Perceptron "#) -}
+bbc1c9c3843e2f4e291a910922297a54
+  $fShowPerceptron3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fShowPerceptron_$cshow :: Perceptron.Perceptron -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U(U),1*U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Perceptron.Perceptron ->
+                 case w of ww { Perceptron.Perceptron ww1 ww2 ->
+                 Perceptron.$w$cshow ww1 ww2 }) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fShowPerceptron_$cshowList ::
+    [Perceptron.Perceptron] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Perceptron.Perceptron
+                   Perceptron.$fShowPerceptron1) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  $fShowPerceptron_$cshowsPrec ::
+    GHC.Types.Int -> Perceptron.Perceptron -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><S,1*U(1*U(U),U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Perceptron.Perceptron ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Perceptron.Perceptron ww3 ww4 ->
+                 Perceptron.$w$cshowsPrec ww1 ww3 ww4 } }) -}
+90ccda997defb957ff4d6e0df22e3f17
+  $w$cpredict ::
+    [GHC.Types.Double] -> [GHC.Types.Double] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,U><L,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [GHC.Types.Double] w :: [GHC.Types.Double] ->
+                 case Lib.$wgo1
+                        (GHC.List.tail @ GHC.Types.Double ww)
+                        w
+                        0.0 of ww1 { DEFAULT ->
+                 case ww of wild {
+                   [] -> case GHC.List.badHead ret_ty GHC.Types.Bool of {}
+                   : x ds1
+                   -> case x of wild1 { GHC.Types.D# y ->
+                      GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>## (GHC.Prim.+## ww1 y) 0.0) } } }) -}
+a8ae6ae25f69ad595e0d2236996b2d5a
+  $w$cshow ::
+    GHC.Types.Double -> [GHC.Types.Double] -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(U)><L,1*U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Types.Double ww1 :: [GHC.Types.Double] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Perceptron.$fShowPerceptron2
+                   (case ww of ww2 { GHC.Types.D# ww3 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Perceptron.$fShowPerceptron3
+                      ww3
+                      (GHC.Types.:
+                         @ GHC.Types.Char
+                         GHC.Show.showSpace1
+                         (GHC.Show.showList__
+                            @ GHC.Types.Double
+                            GHC.Float.$fShowDouble1
+                            ww1
+                            (GHC.Types.[] @ GHC.Types.Char))) })) -}
+047c40a5342dad6692e14be8cdacf470
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> GHC.Types.Double -> [GHC.Types.Double] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U><L,1*U(U)><L,U>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: GHC.Types.Double
+                   ww2 :: [GHC.Types.Double] ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = case ww1 of ww3 { GHC.Types.D# ww4 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Perceptron.$fShowPerceptron3
+                       ww4 }
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
+                   = \ x :: GHC.Base.String ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Perceptron.$fShowPerceptron2
+                       (f (GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.showSpace1
+                             (GHC.Show.showList__
+                                @ GHC.Types.Double
+                                GHC.Float.$fShowDouble1
+                                ww2
+                                x)))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x)) }) -}
+66c38722150a4537eac6b31fc5688d55
+  $wfitData ::
+    [[GHC.Types.Double]]
+    -> [GHC.Types.Bool]
+    -> GHC.Types.Double
+    -> [GHC.Types.Double]
+    -> (# GHC.Types.Double, [GHC.Types.Double] #)
+  {- Arity: 4, Strictness: <S,1*U><L,1*U><L,U><L,U>, Inline: [0],
+     Unfolding: (\ ww :: [[GHC.Types.Double]]
+                   ww1 :: [GHC.Types.Bool]
+                   ww2 :: GHC.Types.Double
+                   ww3 :: [GHC.Types.Double] ->
+                 letrec {
+                   $wgo :: [[GHC.Types.Double]]
+                           -> [GHC.Types.Bool] -> (# GHC.Types.Double, [GHC.Types.Double] #)
+                     {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0] -}
+                   = \ w :: [[GHC.Types.Double]] w1 :: [GHC.Types.Bool] ->
+                     case w of wild {
+                       [] -> (# ww2, ww3 #)
+                       : ipv ipv1
+                       -> case w1 of wild1 {
+                            [] -> (# ww2, ww3 #)
+                            : ipv2 ipv3
+                            -> case $wgo ipv1 ipv3 of ww4 { (#,#) ww5 ww6 ->
+                               Perceptron.$wfitDatum ipv ipv2 ww5 ww6 } } }
+                 } in
+                 $wgo ww ww1) -}
+ca11d6b70c87c28d8f6dce3eced6edd8
+  $wfitDatum ::
+    [GHC.Types.Double]
+    -> GHC.Types.Bool
+    -> GHC.Types.Double
+    -> [GHC.Types.Double]
+    -> (# GHC.Types.Double, [GHC.Types.Double] #)
+  {- Arity: 4, Strictness: <L,U><L,1*U><L,U(U)><L,U>, Inline: [0],
+     Unfolding: (\ ww :: [GHC.Types.Double]
+                   ww1 :: GHC.Types.Bool
+                   ww2 :: GHC.Types.Double
+                   ww3 :: [GHC.Types.Double] ->
+                 (# ww2,
+                    GHC.List.zipWith
+                      @ GHC.Types.Double
+                      @ GHC.Types.Double
+                      @ GHC.Types.Double
+                      GHC.Float.plusDouble
+                      ww3
+                      (let {
+                         diff :: GHC.Types.Double
+                         = case ww2 of wild { GHC.Types.D# x ->
+                           case ww1 of wild1 {
+                             GHC.Types.False
+                             -> case Lib.$wgo1
+                                       (GHC.List.tail @ GHC.Types.Double ww3)
+                                       ww
+                                       0.0 of ww4 { DEFAULT ->
+                                case ww3 of wild2 {
+                                  [] -> case GHC.List.badHead ret_ty GHC.Types.Double of {}
+                                  : x1 ds1
+                                  -> case x1 of wild3 { GHC.Types.D# y ->
+                                     case GHC.Prim.tagToEnum#
+                                            @ GHC.Types.Bool
+                                            (GHC.Prim.>## (GHC.Prim.+## ww4 y) 0.0) of wild4 {
+                                       GHC.Types.False -> GHC.Types.D# (GHC.Prim.*## x 0.0)
+                                       GHC.Types.True -> GHC.Types.D# (GHC.Prim.*## x -2.0) } } } }
+                             GHC.Types.True
+                             -> case Lib.$wgo1
+                                       (GHC.List.tail @ GHC.Types.Double ww3)
+                                       ww
+                                       0.0 of ww4 { DEFAULT ->
+                                case ww3 of wild2 {
+                                  [] -> case GHC.List.badHead ret_ty GHC.Types.Double of {}
+                                  : x1 ds1
+                                  -> case x1 of wild3 { GHC.Types.D# y ->
+                                     case GHC.Prim.tagToEnum#
+                                            @ GHC.Types.Bool
+                                            (GHC.Prim.>## (GHC.Prim.+## ww4 y) 0.0) of wild4 {
+                                       GHC.Types.False -> GHC.Types.D# (GHC.Prim.+## x x)
+                                       GHC.Types.True
+                                       -> GHC.Types.D# (GHC.Prim.*## x 0.0) } } } } } }
+                       } in
+                       GHC.Types.:
+                         @ GHC.Types.Double
+                         diff
+                         (GHC.Base.map
+                            @ GHC.Types.Double
+                            @ GHC.Types.Double
+                            (\ ds :: GHC.Types.Double -> GHC.Float.timesDouble ds diff)
+                            ww)) #)) -}
+f28a8be595eb209344572d320da33a33
+  $wfitIter ::
+    GHC.Prim.Int#
+    -> ([[GHC.Types.Double]], [GHC.Types.Bool])
+    -> GHC.Types.Double
+    -> [GHC.Types.Double]
+    -> (# GHC.Types.Double, [GHC.Types.Double] #)
+  {- Arity: 4, Strictness: <S,1*U><L,U(U,U)><L,U><L,U>,
+     Inline: [0] -}
+7f2c70c802bb108ed979b05ed3178ffe
+  data Perceptron = Perceptron GHC.Types.Double [GHC.Types.Double]
+82ecadf85397e62600e1cd6cb8268922
+  fitData ::
+    ([[GHC.Types.Double]], [GHC.Types.Bool])
+    -> Perceptron.Perceptron -> Perceptron.Perceptron
+  {- Arity: 2, Strictness: <S(SL),1*U(1*U,1*U)><S,U(U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: ([[GHC.Types.Double]], [GHC.Types.Bool])
+                   w1 :: Perceptron.Perceptron ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case w1 of ww3 { Perceptron.Perceptron ww4 ww5 ->
+                 case Perceptron.$wfitData ww1 ww2 ww4 ww5 of ww6 { (#,#) ww7 ww8 ->
+                 Perceptron.Perceptron ww7 ww8 } } }) -}
+25bade1a5244b4a8f5773adc7d534770
+  fitDatum ::
+    ([GHC.Types.Double], GHC.Types.Bool)
+    -> Perceptron.Perceptron -> Perceptron.Perceptron
+  {- Arity: 2, Strictness: <S,1*U(U,1*U)><S,1*U(U(U),U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: ([GHC.Types.Double], GHC.Types.Bool)
+                   w1 :: Perceptron.Perceptron ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case w1 of ww3 { Perceptron.Perceptron ww4 ww5 ->
+                 case Perceptron.$wfitDatum
+                        ww1
+                        ww2
+                        ww4
+                        ww5 of ww6 { (#,#) ww7 ww8 ->
+                 Perceptron.Perceptron ww7 ww8 } } }) -}
+7f2c70c802bb108ed979b05ed3178ffe
+  fitIter ::
+    GHC.Types.Int
+    -> ([[GHC.Types.Double]], [GHC.Types.Bool])
+    -> Perceptron.Perceptron
+    -> Perceptron.Perceptron
+  {- Arity: 3, Strictness: <S(S),1*U(1*U)><L,U(U,U)><S,U(U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: ([[GHC.Types.Double]], [GHC.Types.Bool])
+                   w2 :: Perceptron.Perceptron ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { Perceptron.Perceptron ww3 ww4 ->
+                 case Perceptron.$wfitIter ww1 w1 ww3 ww4 of ww5 { (#,#) ww6 ww7 ->
+                 Perceptron.Perceptron ww6 ww7 } } }) -}
+instance LinearClassifier.LinearClassifier [Perceptron.Perceptron]
+  = Perceptron.$fLinearClassifierPerceptron
+instance GHC.Show.Show [Perceptron.Perceptron]
+  = Perceptron.$fShowPerceptron
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

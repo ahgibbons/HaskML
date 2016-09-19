@@ -1,0 +1,44 @@
+module Adaline where
+
+import LinearClassifier
+import Lib
+import Data.List
+import Numeric.LinearAlgebra
+
+type ActivationFunc = Double -> Double
+data Adaline = Adaline Double [Double] deriving (Show)
+
+instance LinearClassifier Adaline where
+    predict (Adaline _ ws) xs = vdot (tail ws) xs + (head ws) > 0
+    fit = fitIter
+    weights (Adaline _ ws) = ws
+
+
+fitIter :: Int -> ([[Double]],[Bool]) -> Adaline -> Adaline
+fitIter 0 _ a = a
+fitIter n tdata a = fitIter (n-1) tdata (fitData tdata a)
+
+fitData :: ([[Double]],[Bool]) -> Adaline -> Adaline
+fitData tdata (Adaline eta ws) = Adaline eta ws'
+    where
+      (xss, ybs) = tdata
+      ys = map boolToNum ybs
+      output = map (\xs -> vdot (tail ws) xs + (head ws)) xss
+      errors = zipWith (-) ys output
+      w_corrections = zipWith (\m ls -> sum $ map (eta*m*) ls) errors (transpose xss)
+      dws = eta * (sum errors) : w_corrections
+      ws' = zipWith (+) dws ws
+
+myMean xs = sum (xs) / fromIntegral (length xs)
+myStd xs = sqrt . (/ fromIntegral (length xs)) . sum . map (\x -> (x - myMean xs)**2) $ xs 
+
+txss = [[1,1],[-1,-1],[1,4],[-2,-8],[-2,-1.0]]
+ys = [True,False,True,False,False]
+
+txss_s = transpose . map standardize . transpose $ txss
+
+lineParam :: Adaline -> [Double]
+lineParam (Adaline _ [p,q,r]) = [-q/r, -p/r]
+
+
+foo = zip txss ys

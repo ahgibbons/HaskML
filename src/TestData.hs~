@@ -1,0 +1,32 @@
+module TestData where
+
+import Text.CSV (parseCSVFromFile)
+import Lib
+
+data Iris = Iris { sepalLength :: Double
+                 , sepalWidth :: Double
+                 , petalLength :: Double
+                 , petalWidth :: Double
+                 , irisClass :: String}
+
+recToIris :: [String] -> Iris
+recToIris [sL,sW,pL,pW,iC] = Iris { sepalLength = read sL
+                                  , sepalWidth = read sW
+                                  , petalLength = read pL
+                                  , petalWidth = read pW
+                                  , irisClass = iC}
+
+
+testData = do 
+    Right t <- parseCSVFromFile "iris.data"
+    let t' = map recToIris . filter (/= [""]) $ t
+    return t'
+
+trainData = do
+    td <- testData
+    let traindata = map (\i -> ([sepalLength i, petalLength i],
+                           irisClass i == "Iris-setosa")) $ take 100 td
+    return traindata
+
+
+trainData_std = standardizeTData <$> trainData
