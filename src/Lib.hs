@@ -5,10 +5,12 @@ module Lib
     , lineParam2D
     , standardizeTData
     , checkErrors
+    , toRepa
     ) where
 
 import LinearClassifier
 import Data.List (transpose)
+import Data.Array.Repa hiding (map,foldr,transpose,zipWith)
 
 vdot :: [Double] -> [Double] -> Double
 vdot v1 v2 = sum . zipWith (*) v1 $ v2
@@ -19,11 +21,21 @@ boolToNum b = if b then 1 else (-1)
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
+toRepa :: [[Double]] -> Array U DIM2 Double
+toRepa xss = let n = length xss
+                 d = length (head xss)
+             in fromListUnboxed (Z :. n :. d) (concat xss)
+
 standardize :: [Double] -> [Double]
 standardize xs = map (\x -> (x - x_mean)/x_std) xs
     where
       x_mean = list_mean xs
       x_std  = list_std xs 
+
+{-}
+standardizeRepa :: Array U DIM2 Double -> Array U DIM2 Double
+standardizeRepa a = 
+-}
 
 standardizeTData :: ([[Double]],[Bool]) -> ([[Double]],[Bool])
 standardizeTData (xss,bs) =
@@ -32,6 +44,10 @@ standardizeTData (xss,bs) =
         xss_S = transpose xss_ST
     in
         (xss_S, bs)
+
+{-}
+col_Mean a = R.traverse a (\(Z :. n :. m) -> \(Z :. m))
+-}
 
 list_mean :: [Double] -> Double
 list_mean xs = sum xs / fromIntegral (length xs)

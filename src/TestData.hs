@@ -2,6 +2,10 @@ module TestData where
 
 import Text.CSV (parseCSVFromFile)
 import Lib
+import Data.Array.Repa hiding (map,foldr)
+import LinearClassifier
+import Perceptron
+import AdalineGD
 
 data Iris = Iris { sepalLength :: Double
                  , sepalWidth :: Double
@@ -31,3 +35,15 @@ trainData = do
   return (xss,ys)
 
 trainData_std = standardizeTData <$> trainData
+
+perceptron_sample = do
+  td <- trainData
+  return $ fit 20 td (Perceptron 0.01 [0,0,0])
+
+perceptron_std_sample = do
+  td <- trainData_std
+  return $ fit 20 td (Perceptron 0.01 [0,0,0])
+
+adalineGD_sample = do
+  td <- trainData_std
+  return $ fit 20 td (AdalineGD 0.01 [0,0,0])

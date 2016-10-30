@@ -1,4 +1,6 @@
-module Perceptron where
+module Perceptron 
+(Perceptron(..))
+where
 
 import Data.Either
 import Lib

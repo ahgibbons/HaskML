@@ -17,8 +17,10 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
                      , Perceptron
-                     , Adaline
+                     , AdalineGD
+                     , AdalineSGD
                      , LinearClassifier
+                     , TestData
   build-depends:       base >= 4.7 && < 5
                      , csv
                      , hmatrix

@@ -21,11 +21,11 @@ fitDatum (xs,yb) p@(Perceptron eta ws) =
         ws' = zipWith (+) ws updates
     in (Perceptron eta ws')
 
-fitData :: [([Double],Bool)] -> Perceptron -> Perceptron
+fitData :: ([[Double]],[Bool]) -> Perceptron -> Perceptron
 fitData tdata p = 
-    foldr fitDatum p tdata 
+    foldr fitDatum p (zip (fst tdata) (snd tdata))  
 
-fitIter :: Int -> [([Double],Bool)] -> Perceptron -> Perceptron
+fitIter :: Int -> ([[Double]],[Bool]) -> Perceptron -> Perceptron
 fitIter 0 _ p = p
 fitIter n tdata p = fitIter (n-1) tdata (fitData tdata p)
 
