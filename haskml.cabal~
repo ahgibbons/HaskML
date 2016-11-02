@@ -23,7 +23,10 @@ library
                      , TestData
   build-depends:       base >= 4.7 && < 5
                      , csv
-                     , hmatrix
+                     , linear
+                     , repa
+                     , repa-algorithms
+                     , random-shuffle
   default-language:    Haskell2010
 
 executable haskml-exe
@@ -33,7 +36,10 @@ executable haskml-exe
   build-depends:       base
                      , haskml
                      , csv
-                     , hmatrix
+                     , linear
+                     , repa
+                     , repa-algorithms
+                     , random-shuffle
   default-language:    Haskell2010
 
 test-suite haskml-test

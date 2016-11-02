@@ -32,8 +32,10 @@ standardize xs = map (\x -> (x - x_mean)/x_std) xs
       x_mean = list_mean xs
       x_std  = list_std xs 
 
+{-}
 standardizeRepa :: Array U DIM2 Double -> Array U DIM2 Double
 standardizeRepa a = 
+-}
 
 standardizeTData :: ([[Double]],[Bool]) -> ([[Double]],[Bool])
 standardizeTData (xss,bs) =
@@ -43,7 +45,9 @@ standardizeTData (xss,bs) =
     in
         (xss_S, bs)
 
+{-}
 col_Mean a = R.traverse a (\(Z :. n :. m) -> \(Z :. m))
+-}
 
 list_mean :: [Double] -> Double
 list_mean xs = sum xs / fromIntegral (length xs)

@@ -1,9 +1,11 @@
 module LinearClassifier where
 
-data DataForm = Normal [[Double]] | Standardized [[Double]]
+type StandardizedSet = [[Double]]
+type Data = [Double]
+type TrainData = ([Data],[Bool])
 
 class LinearClassifier p where
-  predict :: p -> [Double] -> Bool
+  predict :: p -> Data -> Bool
   fit :: Int -> ([[Double]],[Bool]) -> p -> p
   weights :: p -> [Double]
 

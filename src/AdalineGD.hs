@@ -11,14 +11,12 @@ type ActivationFunc = Double -> Double
 data AdalineGD = AdalineGD Double [Double] deriving (Show)
 
 instance LinearClassifier AdalineGD where
-    predict (AdalineGD _ ws) xs = vdot (tail ws) xs + (head ws) > 0
+    predict (AdalineGD _ ws) xs = weightScore ws xs > 0
     fit = fitIter
     weights (AdalineGD _ ws) = ws
 
-
 fitIter :: Int -> ([[Double]],[Bool]) -> AdalineGD -> AdalineGD
-fitIter 0 _ a = a
-fitIter n tdata a = fitIter (n-1) tdata (fitData tdata a)
+fitIter n tdata a0 = iterate (fitData tdata) a0 !! n
 
 fitData :: ([[Double]],[Bool]) -> AdalineGD -> AdalineGD
 fitData tdata (AdalineGD eta ws) = AdalineGD eta ws'

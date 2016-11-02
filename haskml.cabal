@@ -26,6 +26,8 @@ library
                      , linear
                      , repa
                      , repa-algorithms
+                     , random-shuffle
+                     , random
   default-language:    Haskell2010
 
 executable haskml-exe
@@ -38,6 +40,8 @@ executable haskml-exe
                      , linear
                      , repa
                      , repa-algorithms
+                     , random-shuffle
+                     , random
   default-language:    Haskell2010
 
 test-suite haskml-test

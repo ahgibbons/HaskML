@@ -1,5 +1,5 @@
 module Perceptron 
-(Perceptron(..))
+( Perceptron(..))
 where
 
 import Data.Either
@@ -27,7 +27,6 @@ fitData :: ([[Double]],[Bool]) -> Perceptron -> Perceptron
 fitData tdata p = 
     foldr fitDatum p (zip (fst tdata) (snd tdata))  
 
-fitIter :: Int -> ([[Double]],[Bool]) -> Perceptron -> Perceptron
-fitIter 0 _ p = p
-fitIter n tdata p = fitIter (n-1) tdata (fitData tdata p)
 
+fitIter :: Int -> ([[Double]],[Bool]) -> Perceptron -> Perceptron
+fitIter n tdata p0 = iterate (fitData tdata) p0 !! n
