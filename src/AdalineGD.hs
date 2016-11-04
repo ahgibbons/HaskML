@@ -15,14 +15,14 @@ instance LinearClassifier AdalineGD where
     fit = fitIter
     weights (AdalineGD _ ws) = ws
 
-fitIter :: Int -> ([[Double]],[Bool]) -> AdalineGD -> AdalineGD
+fitIter :: Int -> [([Double],Bool)] -> AdalineGD -> AdalineGD
 fitIter n tdata a0 = iterate (fitData tdata) a0 !! n
 
 
-fitData :: ([[Double]],[Bool]) -> AdalineGD -> AdalineGD
+fitData :: [([Double],Bool)] -> AdalineGD -> AdalineGD
 fitData tdata (AdalineGD eta ws) = AdalineGD eta ws'
     where
-      (xss, ybs) = tdata
+      (xss, ybs) = unzip tdata
       ys = map boolToNum ybs
       output = map (weightScore ws) xss
       errors = zipWith (-) ys output

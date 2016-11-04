@@ -28,12 +28,12 @@ fileData = do
     return t'
 
 
-trainData :: IO ([[Double]],[Bool])
+trainData :: IO [([Double],Bool)]
 trainData = do
   td <- fileData
   let ys  = map (\i -> irisClass i /= "Iris-setosa") $ take 100 td
       xss = map (\i -> [sepalLength i, petalLength i]) $ take 100 td
-  return (xss,ys)
+  return $ zip xss ys
 
 trainData_std = standardizeTData <$> trainData
 

@@ -8,6 +8,6 @@ type Weight = Double
 
 class LinearClassifier p where
   predict :: p -> Data -> Bool
-  fit :: Int -> ([[Double]],[Bool]) -> p -> p
+  fit :: Int -> [([Double],Bool)] -> p -> p
   weights :: p -> [Weight]
 

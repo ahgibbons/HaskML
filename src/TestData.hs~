@@ -6,6 +6,7 @@ import Data.Array.Repa hiding (map,foldr)
 import LinearClassifier
 import Perceptron
 import AdalineGD
+import AdalineSGD
 
 data Iris = Iris { sepalLength :: Double
                  , sepalWidth :: Double

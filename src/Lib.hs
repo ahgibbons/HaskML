@@ -37,13 +37,14 @@ standardize xs = map (\x -> (x - x_mean)/x_std) xs
       x_std  = list_std xs 
 
 
-standardizeTData :: ([[Double]],[Bool]) -> ([[Double]],[Bool])
-standardizeTData (xss,bs) =
-    let xss_T = transpose xss
+standardizeTData :: [([Double],Bool)] -> [([Double],Bool)]
+standardizeTData idata =
+    let (xss,bs) = unzip idata
+        xss_T = transpose xss
         xss_ST = map standardize xss_T
         xss_S = transpose xss_ST
     in
-        (xss_S, bs)
+        zip xss_S bs
 
 list_mean :: [Double] -> Double
 list_mean xs = sum xs / fromIntegral (length xs)

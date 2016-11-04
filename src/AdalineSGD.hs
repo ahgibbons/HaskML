@@ -15,22 +15,21 @@ import Control.Monad
 --import Numeric.LinearAlgebra
 
 --   AdalineSGD = AdalineSGD eta weights
-data AdalineSGD = RandomGen g => 
-                  AdalineSGD g UpdateParam [Weight] deriving (Show)
+data AdalineSGD = AdalineSGD UpdateParam [Weight] deriving (Show)
 
 
 instance LinearClassifier AdalineSGD where
-  predict (AdalineSGD _ _ ws) xs = weightScore ws xs > 0
+  predict (AdalineSGD _ ws) xs = weightScore ws xs > 0
   fit = fitShuffle (mkStdGen 21)
-  weights (AdalineSGD _ _ ws) = ws
+  weights (AdalineSGD _ ws) = ws
 
 fitIter :: Int -> ([[Double]],[Bool]) -> AdalineSGD -> AdalineSGD
 fitIter n tdata a0 = iterate (fitData tdata) a0 !! n
 
 
-fitShuffle :: Int -> [([Double],Bool)] 
+fitShuffle :: RandomGen g => g -> Int -> [([Double],Bool)] 
            -> AdalineSGD -> AdalineSGD
-fitShuffle g n tdata a0@(AdalineSGD g _ _) = 
+fitShuffle g n tdata a0 = 
     let rtd = evalRand (replicateM n (shuffleM tdata)) g
     in foldr fitData' a0 rtd
 
