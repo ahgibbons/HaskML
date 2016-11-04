@@ -6,6 +6,7 @@ module Lib
     , standardizeTData
     , checkErrors
     , toRepa
+    , weightScore
     ) where
 
 import LinearClassifier
@@ -62,3 +63,8 @@ lineParam2D lc = let [p,q,r] = weights lc
 
 checkErrors :: LinearClassifier lc => lc -> ([[Double]],[Bool]) -> Int
 checkErrors lc d = length . filter (==False) $ zipWith (\i y -> predict lc i == y) (fst d) (snd d) 
+
+weightScore :: [Double] -> [Double] -> Double
+weightScore ws xs 
+    | length xs + 1 == length ws = vdot (tail ws) xs + (head ws)
+    | otherwise                  = error "Data/Weights length mismatch"

@@ -6,6 +6,7 @@ import Data.Array.Repa hiding (map,foldr)
 import LinearClassifier
 import Perceptron
 import AdalineGD
+import AdalineSGD
 
 data Iris = Iris { sepalLength :: Double
                  , sepalWidth :: Double
@@ -47,3 +48,7 @@ perceptron_std_sample = do
 adalineGD_sample = do
   td <- trainData_std
   return $ fit 20 td (AdalineGD 0.01 [0,0,0])
+
+adalineSGD_sample = do
+  td <- trainData_std
+  return $ fit 20 td (AdalineSGD 0.01 [0,0,0])

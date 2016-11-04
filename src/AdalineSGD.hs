@@ -1,5 +1,7 @@
 module AdalineSGD 
-(AdalineSGD(..))
+( AdalineSGD(..)
+,fitPartial
+,fitData' )
 
 where
 
@@ -8,44 +10,44 @@ import Lib
 import Data.List
 import System.Random.Shuffle
 import System.Random
+import Control.Monad.Random
+import Control.Monad
 --import Numeric.LinearAlgebra
 
 --   AdalineSGD = AdalineSGD eta weights
-data AdalineSGD = AdalineSGD Double [Double] deriving (Show)
-
-{-}
-fitIter :: (RandomGen g) => 
-           g -> Int -> ([[Double]],[Bool]) 
-        -> AdalineSGD -> AdalineSGD
-fitIter 0 
-fitIter g n tdata (AdalineSGD eta ws) = 
-    
-fitStep :: (RandomGen g) => g
-        -> ([[Double]],[Bool])
-        -> AdalineSGD -> AdalineSGD
-fitStep g (xs,ys) a@(AdalineSGD eta ws) = 
-    let cost = map updateWeight tdata
-        avg_cost = sum (cost) / (fromIntegral $ length cost)
-    in avg_cost
+data AdalineSGD = RandomGen g => 
+                  AdalineSGD g UpdateParam [Weight] deriving (Show)
 
 
-
-net_input = map (\xs -> vdot (tail ws) xs + (head ws)) xss
-
--}
-{-}
 instance LinearClassifier AdalineSGD where
-    predict (AdalineSGD _ ws) xs = vdot (tail ws) xs + (head ws) > 0
-    fit = fitIter
-    weights (AdalineSGD _ ws) = ws
+  predict (AdalineSGD _ _ ws) xs = weightScore ws xs > 0
+  fit = fitShuffle (mkStdGen 21)
+  weights (AdalineSGD _ _ ws) = ws
+
+fitIter :: Int -> ([[Double]],[Bool]) -> AdalineSGD -> AdalineSGD
+fitIter n tdata a0 = iterate (fitData tdata) a0 !! n
 
 
-fitDatum :: ([Double], Bool) -> AdalineSGD -> AdalineSGD
-fitDatum (xs,yb) a@(Adaline eta ws) =
-    let y  = boolToNum yb
-        output = map (\xs -> vdot (tail ws) xs + (head ws)) xss
-        error = eta*(y-output)
-        updates = diff : map (*diff) xs
-        ws' = zipWith (+) ws updates
+fitShuffle :: Int -> [([Double],Bool)] 
+           -> AdalineSGD -> AdalineSGD
+fitShuffle g n tdata a0@(AdalineSGD g _ _) = 
+    let rtd = evalRand (replicateM n (shuffleM tdata)) g
+    in foldr fitData' a0 rtd
+
+fitData' :: [([Double],Bool)] -> AdalineSGD -> AdalineSGD
+fitData' tdata a = 
+    foldr fitDatum a tdata
+
+fitData :: ([[Double]],[Bool]) -> AdalineSGD -> AdalineSGD
+fitData tdata a = 
+    foldr fitDatum a (zip (fst tdata) (snd tdata))
+
+fitPartial = fitData
+
+fitDatum :: ([Double],Bool) -> AdalineSGD -> AdalineSGD
+fitDatum i@(xs,yb) a@(AdalineSGD eta ws) =
+    let err     = eta * predictError i a 
+        updates = err : map (*err) xs
+        ws'     = zipWith (+) ws updates
     in (AdalineSGD eta ws')
--}
+

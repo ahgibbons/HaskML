@@ -28,6 +28,7 @@ library
                      , repa-algorithms
                      , random-shuffle
                      , random
+                     , MonadRandom
   default-language:    Haskell2010
 
 executable haskml-exe
@@ -42,6 +43,7 @@ executable haskml-exe
                      , repa-algorithms
                      , random-shuffle
                      , random
+                     , MonadRandom
   default-language:    Haskell2010
 
 test-suite haskml-test

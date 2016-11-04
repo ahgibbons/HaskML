@@ -7,6 +7,9 @@ module Lib
     , checkErrors
     , toRepa
     , weightScore
+    , predictError
+    , cost
+    , fitCost
     ) where
 
 import LinearClassifier
@@ -33,10 +36,6 @@ standardize xs = map (\x -> (x - x_mean)/x_std) xs
       x_mean = list_mean xs
       x_std  = list_std xs 
 
-{-}
-standardizeRepa :: Array U DIM2 Double -> Array U DIM2 Double
-standardizeRepa a = 
--}
 
 standardizeTData :: ([[Double]],[Bool]) -> ([[Double]],[Bool])
 standardizeTData (xss,bs) =
@@ -45,10 +44,6 @@ standardizeTData (xss,bs) =
         xss_S = transpose xss_ST
     in
         (xss_S, bs)
-
-{-}
-col_Mean a = R.traverse a (\(Z :. n :. m) -> \(Z :. m))
--}
 
 list_mean :: [Double] -> Double
 list_mean xs = sum xs / fromIntegral (length xs)
@@ -68,3 +63,18 @@ weightScore :: [Double] -> [Double] -> Double
 weightScore ws xs 
     | length xs + 1 == length ws = vdot (tail ws) xs + (head ws)
     | otherwise                  = error "Data/Weights length mismatch"
+
+predictError :: LinearClassifier a => ([Double],Bool) -> a -> Double
+predictError (xs,yb) a = 
+    let y  = boolToNum yb
+        y' = weightScore (weights a) xs
+    in (y-y')
+
+cost :: LinearClassifier a => ([Double],Bool) -> a -> Double
+cost i a = let err = predictError i a in 0.5 * (err ^ 2)
+
+fitCost :: LinearClassifier a => ([[Double]],[Bool]) -> a -> Double
+fitCost i a = 
+    let iT = zip (fst i) (snd i)
+        costs = map (flip cost a) iT
+    in sum costs / (fromIntegral . length $ costs)

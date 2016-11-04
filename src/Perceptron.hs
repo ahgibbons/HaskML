@@ -6,21 +6,21 @@ import Data.Either
 import Lib
 import LinearClassifier
 
-data Perceptron = Perceptron Double [Double] deriving (Show)
+data Perceptron = Perceptron UpdateParam [Weight] deriving (Show)
 
 instance LinearClassifier Perceptron where
-    predict (Perceptron _ ws) xs = vdot (tail ws) xs + (head ws) > 0
+    predict (Perceptron _ ws) xs = weightScore ws xs > 0
     fit = fitIter
     weights (Perceptron _ ws) = ws
 
     
 fitDatum :: ([Double],Bool) -> Perceptron -> Perceptron
 fitDatum (xs,yb) p@(Perceptron eta ws) =
-    let y    = boolToNum yb
-        y'   = boolToNum . predict p $ xs
-        diff = eta*(y-y')
+    let y       = boolToNum yb
+        y'      = boolToNum . predict p $ xs
+        diff    = eta*(y-y')
         updates = diff : map (*diff) xs
-        ws' = zipWith (+) ws updates
+        ws'     = zipWith (+) ws updates
     in (Perceptron eta ws')
 
 fitData :: ([[Double]],[Bool]) -> Perceptron -> Perceptron
