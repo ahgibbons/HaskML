@@ -37,13 +37,14 @@ standardize xs = map (\x -> (x - x_mean)/x_std) xs
       x_std  = list_std xs 
 
 
-standardizeTData :: ([[Double]],[Bool]) -> ([[Double]],[Bool])
-standardizeTData (xss,bs) =
-    let xss_T = transpose xss
+standardizeTData :: [([Double],Bool)] -> [([Double],Bool)]
+standardizeTData idata =
+    let (xss,bs) = unzip idata
+        xss_T = transpose xss
         xss_ST = map standardize xss_T
         xss_S = transpose xss_ST
     in
-        (xss_S, bs)
+        zip xss_S bs
 
 list_mean :: [Double] -> Double
 list_mean xs = sum xs / fromIntegral (length xs)
@@ -73,7 +74,7 @@ predictError (xs,yb) a =
 cost :: LinearClassifier a => ([Double],Bool) -> a -> Double
 cost i a = let err = predictError i a in 0.5 * (err ^ 2)
 
-fitCost :: LinearClassifier a => ([[Double]],[Bool]) -> a -> Double
+fitCost :: LinearClassifier a => [([Double],Bool)] -> a -> Double
 fitCost i a = 
     let iT = zip (fst i) (snd i)
         costs = map (flip cost a) iT

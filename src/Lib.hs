@@ -74,8 +74,7 @@ predictError (xs,yb) a =
 cost :: LinearClassifier a => ([Double],Bool) -> a -> Double
 cost i a = let err = predictError i a in 0.5 * (err ^ 2)
 
-fitCost :: LinearClassifier a => ([[Double]],[Bool]) -> a -> Double
+fitCost :: LinearClassifier a => [([Double],Bool)] -> a -> Double
 fitCost i a = 
-    let iT = zip (fst i) (snd i)
-        costs = map (flip cost a) iT
+    let costs = map (flip cost a) i
     in sum costs / (fromIntegral . length $ costs)

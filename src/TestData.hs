@@ -7,6 +7,7 @@ import LinearClassifier
 import Perceptron
 import AdalineGD
 import AdalineSGD
+import System.Random
 
 data Iris = Iris { sepalLength :: Double
                  , sepalWidth :: Double
@@ -51,4 +52,5 @@ adalineGD_sample = do
 
 adalineSGD_sample = do
   td <- trainData_std
-  return $ fit 20 td (AdalineSGD 0.01 [0,0,0])
+  g <- newStdGen
+  return $ fit 20 td (AdalineSGD g 0.01 [0,0,0])
