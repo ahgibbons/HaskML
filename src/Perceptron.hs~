@@ -5,14 +5,27 @@ where
 import Data.Either
 import Lib
 import LinearClassifier
+import Data.Matrix
 
 data Perceptron = Perceptron UpdateParam [Weight] deriving (Show)
+
+data PerceptronM = PerceptronM UpdateParam (Matrix Weight) deriving (Show)
 
 instance LinearClassifier Perceptron where
     predict (Perceptron _ ws) xs = weightScore ws xs > 0
     fit = fitIter
     weights (Perceptron _ ws) = ws
 
+listToMatrix :: [Double] -> Matrix Double
+listToMatrix list = fromList 1 (length list) list
+
+fitDatum2 :: ([Double],Bool) -> PerceptronM -> PerceptronM
+fitDatum2 (xs,ys) p@(PerceptronM eta ws) = 
+    let y      = boolToNum yb
+        xm     = fromList 1 (length xs) xs
+        y'     = bootToNum $ (getElem 1 1 $ xm * ws) > 0
+        diff   = eta*(y-y')
+        update = diff : diff * 
     
 fitDatum :: ([Double],Bool) -> Perceptron -> Perceptron
 fitDatum (xs,yb) p@(Perceptron eta ws) =
@@ -23,10 +36,11 @@ fitDatum (xs,yb) p@(Perceptron eta ws) =
         ws'     = zipWith (+) ws updates
     in (Perceptron eta ws')
 
-fitData :: ([[Double]],[Bool]) -> Perceptron -> Perceptron
+
+fitData :: [([Double],Bool)] -> Perceptron -> Perceptron
 fitData tdata p = 
-    foldr fitDatum p (zip (fst tdata) (snd tdata))  
+    foldr fitDatum p tdata  
 
 
-fitIter :: Int -> ([[Double]],[Bool]) -> Perceptron -> Perceptron
+fitIter :: Int -> [([Double],Bool)] -> Perceptron -> Perceptron
 fitIter n tdata p0 = iterate (fitData tdata) p0 !! n
