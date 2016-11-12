@@ -1,18 +1,14 @@
 module LinearClassifier where
 
 import Data.Matrix
+import Data.Array.Repa
 
 type StandardizedSet = [[Double]]
 type Data = Matrix Double
+type Input = Array U DIM1 Double
 type TrainData = ([[Double]],[Bool])
 type UpdateParam = Double
 type Weight = Double
-
-toData :: [Double] -> Data
-toData ilist = fromList 1 (length ilist) ilist
-
-fromData :: Data -> [Double]
-fromData = toList
 
 
 class LinearClassifier p where

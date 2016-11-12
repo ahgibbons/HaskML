@@ -38,6 +38,10 @@ trainData = do
 
 trainData_std = standardizeTData <$> trainData
 
+trainData_repa :: IO [(Input,Bool)]
+trainData_repa = 
+    map (\(xs,yb) -> (fromListUnboxed (Z:.3::DIM1) (1:xs),yb)) <$> trainData_std
+
 perceptron_sample = do
   td <- trainData
   return $ fit 20 td (Perceptron 0.01 [0,0,0])
@@ -54,3 +58,7 @@ adalineSGD_sample = do
   td <- trainData_std
   g <- newStdGen
   return $ fit 20 td (AdalineSGD g 0.01 [0,0,0])
+
+adalineGDR_sample = do
+  td <- trainData_std
+  return $ AdalineGD.fitIterR 20 td (AdalineGDR 0.01 (fromListUnboxed (Z:.3) [0,0,0]))
