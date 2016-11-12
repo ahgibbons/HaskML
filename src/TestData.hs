@@ -62,3 +62,9 @@ adalineSGD_sample = do
 adalineGDR_sample = do
   td <- trainData_std
   return $ AdalineGD.fitIterR 20 td (AdalineGDR 0.01 (fromListUnboxed (Z:.3) [0,0,0]))
+
+adalineSGDR_sample = do
+  td  <- trainData_repa
+  g <- newStdGen
+  let a0 = AdalineSGDR g 0.01 (fromListUnboxed (Z:.3::DIM1) [0,0,0])
+  return $ AdalineSGD.fitShuffleR 20 td a0
