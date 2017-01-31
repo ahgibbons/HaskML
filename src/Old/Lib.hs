@@ -53,28 +53,28 @@ list_std :: [Double] -> Double
 list_std xs = sqrt . (/ fromIntegral (length xs))
          . sum . map (\x -> (x - (list_mean xs))**2) $ xs
 
-lineParam2D :: LinearClassifier p => p -> [Double]
-lineParam2D lc = let [p,q,r] = weights lc
+lineParam2D :: LinearClassifierL p => p -> [Double]
+lineParam2D lc = let [p,q,r] = weightsL lc
                  in [-q/r, -p/r]
 
-checkErrors :: LinearClassifier lc => lc -> ([[Double]],[Bool]) -> Int
-checkErrors lc d = length . filter (==False) $ zipWith (\i y -> predict lc i == y) (fst d) (snd d) 
+checkErrors :: LinearClassifierL lc => lc -> ([[Double]],[Bool]) -> Int
+checkErrors lc d = length . filter (==False) $ zipWith (\i y -> predictL lc i == y) (fst d) (snd d) 
 
 weightScore :: [Double] -> [Double] -> Double
 weightScore ws xs 
     | length xs + 1 == length ws = vdot (tail ws) xs + (head ws)
     | otherwise                  = error "Data/Weights length mismatch"
 
-predictError :: LinearClassifier a => ([Double],Bool) -> a -> Double
+predictError :: LinearClassifierL a => ([Double],Bool) -> a -> Double
 predictError (xs,yb) a = 
     let y  = boolToNum yb
-        y' = weightScore (weights a) xs
+        y' = weightScore (weightsL a) xs
     in (y-y')
 
-cost :: LinearClassifier a => ([Double],Bool) -> a -> Double
+cost :: LinearClassifierL a => ([Double],Bool) -> a -> Double
 cost i a = let err = predictError i a in 0.5 * (err ^ 2)
 
-fitCost :: LinearClassifier a => [([Double],Bool)] -> a -> Double
+fitCost :: LinearClassifierL a => [([Double],Bool)] -> a -> Double
 fitCost i a = 
     let costs = map (flip cost a) i
     in sum costs / (fromIntegral . length $ costs)

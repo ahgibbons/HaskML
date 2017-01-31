@@ -21,6 +21,8 @@ library
                      , AdalineSGD
                      , LinearClassifier
                      , TestData
+                     , Game
+                     
   build-depends:       base >= 4.7 && < 5
                      , csv
                      , linear
